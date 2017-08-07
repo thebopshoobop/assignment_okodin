@@ -5,25 +5,31 @@ const { User } = models;
 const sequelize = models.sequelize;
 const helpers = require("../helpers");
 
-router.get("/", (req, res) => {
+router.get("/:id", (req, res) => {
   console.log("adadfasdf");
   let sessionId = req.session.id;
-  if (sessionId === undefined) {
-    return res.render(`account/loginPage`);
-  } else {
-    User.find({ where: { id: sessionId } })
-      .then(result => {
-        if (result.loggedIn) res.redirect(helpers.userPath(sessionId));
-        else res.render("account/loginPage");
-      })
-      .catch(e => {
-        res.status(500).send(e.stack);
-      });
-  }
+  let userId = req.params.id;
+  User.find({ where: { id: userId } })
+    .then(result => {
+      console.log(req.session);
+      console.log(req.params);
+      if (result.id) {
+        if (sessionId == userId) {
+          return res.render(`users/myPage`, { user: result });
+        } else {
+          return res.render(`users/notMyPage`, { user: result });
+        }
+      } else {
+        res.redirect("/users");
+      }
+    })
+    .catch(e => {
+      res.status(500).send(e.stack);
+    });
 });
 
 router.post("/login", (req, res) => {
-  let userParams = { username: req.body.username };
+  let userParams = { username: req.body.username, email: req.params.email };
 
   return User.findOrCreate({
     defaults: userParams,

@@ -38,7 +38,7 @@ app.use(methodOverride(getPostSupport.callback, getPostSupport.options));
 
 // Routes
 app.use("/", require("./routers/account"));
-
+app.use("/users", require("./routers/users"));
 // Set up port/host
 const port = process.env.PORT || process.argv[2] || 3000;
 const host = "localhost";
