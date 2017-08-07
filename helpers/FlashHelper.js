@@ -1,4 +1,4 @@
-var FlashHelper = {};
+const FlashHelper = {};
 FlashHelper.bootstrapAlertClassFor = function(key) {
   return (
     {
