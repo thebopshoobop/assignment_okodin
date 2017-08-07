@@ -20,7 +20,7 @@ app.use(
 );
 
 // Flash
-app.use(require("express-flash-messages"));
+app.use(require("express-flash-messages")());
 
 // Post Data
 const bodyParser = require("body-parser");
