@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var activityVar = [
   "Running",
   "Pillaging",
@@ -12,23 +12,22 @@ var activityVar = [
   "Unicorn_Riding"
 ];
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-      let activites = [];
-      activityVar.forEach(i => {
-        activites.push({
-          name: i
-        });
+  up: function(queryInterface, Sequelize) {
+    let activities = [];
+    activityVar.forEach(i => {
+      activities.push({
+        name: i
       });
-        return queryInterface.bulkInsert("Activites", activites);
-    },
+    });
+    return queryInterface.bulkInsert("Activities", activities);
+  },
 
-    down: function(queryInterface, Sequelize) {
-      return queryInterface.bukDelete(
-        "Activites",
-        null,
-        {},
-        Sequelize.models.Activity
-      );
-    }
-  };
-  };
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.bukDelete(
+      "Activities",
+      null,
+      {},
+      Sequelize.models.Activity
+    );
+  }
+};

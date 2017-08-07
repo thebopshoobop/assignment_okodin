@@ -11,7 +11,7 @@ module.exports = {
         ProfileLocationId: i,
         TalentsId: i,
         FavoriteThingsId: i,
-        email: `email@${i}.com`
+        email: `email@${i}.com`,
         age: i + 5,
         gender: "Unicorn",
         maritalStatus: Boolean(i % 2),

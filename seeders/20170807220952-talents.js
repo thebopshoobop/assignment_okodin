@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
     let talents = [];
     for (let i = 1; i < 11; i++) {
-      locations.push({
+      talents.push({
         ProfileId: i,
         ActivityId: i
       });
     }
-      return queryInterface.bulkInsert("Talents", talents);
+    return queryInterface.bulkInsert("Talents", talents);
   },
 
   down: function(queryInterface, Sequelize) {
@@ -20,5 +20,4 @@ module.exports = {
       Sequelize.models.Talent
     );
   }
-};
 };

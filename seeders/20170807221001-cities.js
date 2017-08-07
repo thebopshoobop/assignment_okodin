@@ -16,7 +16,7 @@ module.exports = {
   up: function(queryInterface, Sequelize) {
     let cities = [];
     cityVar.forEach(i => {
-      locations.push({
+      cities.push({
         name: i
       });
     });

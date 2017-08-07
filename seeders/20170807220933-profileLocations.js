@@ -9,15 +9,15 @@ module.exports = {
         CityId: i
       });
     }
-    return queryInterface.bulkInsert("Locations", locations);
+    return queryInterface.bulkInsert("ProfileLocations", locations);
   },
 
   down: function(queryInterface, Sequelize) {
     return queryInterface.bukDelete(
-      "Locations",
+      "ProfileLocations",
       null,
       {},
-      Sequelize.models.Location
+      Sequelize.models.ProfileLocation
     );
   }
 };

@@ -17,7 +17,7 @@ module.exports = {
       PictureId: {
         type: Sequelize.INTEGER
       },
-      LocationId: {
+      ProfileLocationId: {
         type: Sequelize.INTEGER
       },
       TalentsId: {
