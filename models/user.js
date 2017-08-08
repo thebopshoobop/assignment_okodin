@@ -8,5 +8,22 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     User.hasOne(models.Profile);
   };
+  User.afterCreate((user, options) => {
+    return sequelize.models.Profile
+      .findOrCreate({
+        defaults: { UserId: user.id },
+        where: { UserId: user.id },
+        transaction: options.transaction
+      })
+      .spread(result => {
+        return user.update(
+          { ProfileId: result.id },
+          {
+            where: { id: user.id },
+            transaction: options.transaction
+          }
+        );
+      });
+  });
   return User;
 };

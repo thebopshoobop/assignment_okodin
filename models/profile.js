@@ -21,11 +21,9 @@ module.exports = function(sequelize, DataTypes) {
     Profile.hasMany(models.ProfileLocation);
     Profile.belongsToMany(models.City, { through: models.ProfileLocation });
     Profile.hasMany(models.Talent);
-    Profile.belongsToMany(models.Activities, { through: models.Talent });
-    Profile.hasMany(models.FavoriteThings);
-    Profile.belongsToMany(models.Activities, {
-      through: models.FavoriteThings
-    });
+    Profile.belongsToMany(models.Activity, { through: models.Talent });
+    Profile.hasMany(models.FavoriteThing);
+    Profile.belongsToMany(models.Activity, { through: models.FavoriteThing });
   };
   return Profile;
 };

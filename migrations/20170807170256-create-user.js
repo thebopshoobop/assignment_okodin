@@ -9,6 +9,10 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER
         },
+        ProfileId: {
+          allowNull: true,
+          type: Sequelize.INTEGER
+        },
         loggedIn: {
           allowNull: false,
           type: Sequelize.BOOLEAN,

@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     CityId: DataTypes.INTEGER
   });
   ProfileLocation.associate = function(models) {
-    ProfileLocation.belongsToMany(models.City);
-    ProfileLocation.belongsToMany(models.Profile);
+    ProfileLocation.belongsTo(models.City);
+    ProfileLocation.belongsTo(models.Profile);
   };
   return ProfileLocation;
 };

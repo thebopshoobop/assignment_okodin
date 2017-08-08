@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   FavoriteThing.associate = function(models) {
     FavoriteThing.belongsTo(models.Activity);
-    FavoriteThing.belongsToMany(models.Profile);
+    FavoriteThing.belongsTo(models.Profile);
   };
   return FavoriteThing;
 };

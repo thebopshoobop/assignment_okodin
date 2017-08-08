@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     fileName: DataTypes.STRING
   });
   Picture.associate = function(models) {
-    Picture.belongsToMany(models.Profile);
+    Picture.hasMany(models.Profile);
   };
   return Picture;
 };

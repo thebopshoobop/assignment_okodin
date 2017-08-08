@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   Talent.associate = function(models) {
     Talent.belongsTo(models.Activity);
-    Talent.belongsToMany(models.Profile);
+    Talent.belongsTo(models.Profile);
   };
   return Talent;
 };

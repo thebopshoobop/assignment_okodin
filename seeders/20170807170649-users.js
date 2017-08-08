@@ -5,7 +5,8 @@ module.exports = {
     let users = [];
     for (let i = 1; i < 11; i++) {
       users.push({
-        username: `User${i}`
+        username: `User${i}`,
+        ProfileId: i
       });
     }
     return queryInterface.bulkInsert("Users", users);
